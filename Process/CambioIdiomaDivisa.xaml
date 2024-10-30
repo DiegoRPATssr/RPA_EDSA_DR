@@ -1,0 +1,273 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="CambioIdiomaDivisa" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1495.33333333333,2011.33333333333</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>CambioIdiomaDivisa_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.Platform.SyncObjects</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices.RuntimeInformation</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="CambioIdiomaDivisa" sap:VirtualizedContainerService.HintSize="498,1946.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="ui:UiElement" Name="var_ElementLenguaje" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Edge" DisplayName="Enlazando ventana de Edge" sap:VirtualizedContainerService.HintSize="450,1850" sap2010:WorkflowViewState.IdRef="BrowserScope_2" InformativeScreenshot="b5af305d2edc55e455a267fd13357f3f" Selector="&lt;html app='msedge.exe' title='*' /&gt;">
+      <ui:BrowserScope.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="416,1702.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_3">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:LogMessage DisplayName="Log Message InitAllApplication 05" sap:VirtualizedContainerService.HintSize="368,96" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Abriendo seleccion de Idioma y moneda&quot;]" />
+            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Presiona el boton de Idioma y divisas" sap:VirtualizedContainerService.HintSize="368,107.333333333333" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
+              <ui:Click.CursorPosition>
+                <ui:CursorPosition Position="Center">
+                  <ui:CursorPosition.OffsetX>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetX>
+                  <ui:CursorPosition.OffsetY>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetY>
+                </ui:CursorPosition>
+              </ui:Click.CursorPosition>
+              <ui:Click.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="a36e8c1a-07cc-49f5-9dcb-4c7de95810ec" InformativeScreenshot="eff370738b763dbca6676276537b5aab" Selector="&lt;webctrl class='nav-line-2' parentid='icp-nav-flyout' tag='SPAN' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:Click.Target>
+            </ui:Click>
+            <Delay sap2010:Annotation.AnnotationText="Tiempo de espera de 2 segundos" DisplayName="Tiempo de espera 02" Duration="00:00:02" sap:VirtualizedContainerService.HintSize="368,70.6666666666667" sap2010:WorkflowViewState.IdRef="Delay_1">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </Delay>
+            <ui:LogMessage DisplayName="Log Message InitAllApplication 06" sap:VirtualizedContainerService.HintSize="368,96" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Buscando idioma necesitado por config &quot;&quot;&quot;+ in_Config(&quot;LenguajeTrabajo&quot;).ToString + &quot;&quot;&quot;&quot;]" />
+            <ui:WaitUiElementAppear WaitActive="{x:Null}" WaitVisible="{x:Null}" sap2010:Annotation.AnnotationText="Busca el idioma que se necesita para el proceso" DisplayName="Buscar idioma" FoundElement="[var_ElementLenguaje]" sap:VirtualizedContainerService.HintSize="368,138" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_1">
+              <ui:WaitUiElementAppear.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="1ca7c02a-6ef9-4dca-bb18-b0518d38ab8c" InformativeScreenshot="fea94d251683b3ccf43e0d5a15c60648" Selector="[&quot;&lt;webctrl parentid='icp-language-settings' tag='LABEL' visibleinnertext='&quot; + in_Config(&quot;LenguajeTrabajo&quot;).ToString+ &quot;' /&gt;&quot;]" TimeoutMS="[Cint(in_Config(&quot;SpamTimeOut&quot;).ToString)]">
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:WaitUiElementAppear.Target>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:WaitUiElementAppear>
+            <ui:LogMessage DisplayName="Log Message InitAllApplication 07" sap:VirtualizedContainerService.HintSize="368,96" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Seleccionando idioma deseado&quot;]" />
+            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" sap2010:Annotation.AnnotationText="Se presiona con click simulado en el idioma solicitado" ClickType="CLICK_SINGLE" DisplayName="Presionar boton de English" sap:VirtualizedContainerService.HintSize="368,138" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
+              <ui:Click.CursorPosition>
+                <ui:CursorPosition Position="Center">
+                  <ui:CursorPosition.OffsetX>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetX>
+                  <ui:CursorPosition.OffsetY>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetY>
+                </ui:CursorPosition>
+              </ui:Click.CursorPosition>
+              <ui:Click.Target>
+                <ui:Target ClippingRegion="{x:Null}" Selector="{x:Null}" Element="[var_ElementLenguaje]" Id="ae65968e-e491-4da7-8d1e-864495c33bf5" InformativeScreenshot="ab468b62aaaddd75a9d0ede1bff7d090">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:Click.Target>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:Click>
+            <ui:LogMessage DisplayName="Log Message InitAllApplication 08" sap:VirtualizedContainerService.HintSize="368,96" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Seleccionando divisa necesitada por Config &quot;&quot;&quot; + in_Config(&quot;MonedaTrabajo&quot;).ToString + &quot;&quot;&quot;&quot;]" />
+            <ui:SelectItem AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" sap2010:Annotation.AnnotationText="Selecciona desde el combo box la divisa necesaria por el proceso" DisplayName="Seleccionar moneda de trabajo" sap:VirtualizedContainerService.HintSize="368,202.666666666667" sap2010:WorkflowViewState.IdRef="SelectItem_1" Item="[in_Config(&quot;MonedaTrabajo&quot;).ToString]">
+              <ui:SelectItem.Items>
+                <scg:List x:TypeArguments="x:String" Capacity="50">
+                  <x:String>Select Currency</x:String>
+                  <x:String>$ - USD - US Dollar (Default)</x:String>
+                  <x:String>CLP - Chilean Peso</x:String>
+                  <x:String>COP - Colombian Peso</x:String>
+                  <x:String>HK$ - HKD - Hong Kong Dollar</x:String>
+                  <x:String>IDR - Indonesian Rupiah</x:String>
+                  <x:String>₪ - ILS - Israeli New Shekel</x:String>
+                  <x:String>₩ - KRW - South Korean Won</x:String>
+                  <x:String>MYR - Malaysian Ringgit</x:String>
+                  <x:String>NZ$ - NZD - New Zealand Dollar</x:String>
+                  <x:String>THB - Thai Baht</x:String>
+                  <x:String>NT$ - TWD - New Taiwan Dollar</x:String>
+                  <x:String>CRC - Costa Rican Colón</x:String>
+                  <x:String>PEN - Peruvian Sol</x:String>
+                  <x:String>UYU - Uruguayan Peso</x:String>
+                  <x:String>R$ - BRL - Brazilian Real</x:String>
+                  <x:String>A$ - AUD - Australian Dollar</x:String>
+                  <x:String>CA$ - CAD - Canadian Dollar</x:String>
+                  <x:String>CN¥ - CNY - Chinese Yuan</x:String>
+                  <x:String>€ - EUR - Euro</x:String>
+                  <x:String>¥ - JPY - Japanese Yen</x:String>
+                  <x:String>MX$ - MXN - Mexican Peso</x:String>
+                  <x:String>£ - GBP - British Pound</x:String>
+                  <x:String>AED - United Arab Emirates Dirham</x:String>
+                  <x:String>SGD - Singapore Dollar</x:String>
+                  <x:String>SAR - Saudi Riyal</x:String>
+                  <x:String>NOK - Norwegian Krone</x:String>
+                  <x:String>ARS - Argentine Peso</x:String>
+                  <x:String>AMD - Armenian Dram</x:String>
+                  <x:String>AWG - Aruban Florin</x:String>
+                  <x:String>AZN - Azerbaijani Manat</x:String>
+                  <x:String>BSD - Bahamian Dollar</x:String>
+                  <x:String>BZD - Belize Dollar</x:String>
+                  <x:String>BOB - Bolivian Boliviano</x:String>
+                  <x:String>BND - Brunei Dollar</x:String>
+                  <x:String>BGN - Bulgarian Lev</x:String>
+                  <x:String>KHR - Cambodian Riel</x:String>
+                  <x:String>KYD - Cayman Islands Dollar</x:String>
+                  <x:String>DOP - Dominican Peso</x:String>
+                  <x:String>EC$ - XCD - East Caribbean Dollar</x:String>
+                  <x:String>EGP - Egyptian Pound</x:String>
+                  <x:String>GHS - Ghanaian Cedi</x:String>
+                  <x:String>GTQ - Guatemalan Quetzal</x:String>
+                  <x:String>HUF - Hungarian Forint</x:String>
+                  <x:String>₹ - INR - Indian Rupee</x:String>
+                  <x:String>JMD - Jamaican Dollar</x:String>
+                  <x:String>KZT - Kazakhstani Tenge</x:String>
+                  <x:String>KES - Kenyan Shilling</x:String>
+                  <x:String>LBP - Lebanese Pound</x:String>
+                  <x:String>HNL - Honduran Lempira</x:String>
+                </scg:List>
+              </ui:SelectItem.Items>
+              <ui:SelectItem.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="455d022c-1172-42e2-8aa6-6c04724fe3c7" InformativeScreenshot="caa853f60138dc61e5e121eed2797a77" Selector="&lt;webctrl parentid='icp-currency-dropdown-selected-item-prompt' tag='SPAN' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:SelectItem.Target>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:SelectItem>
+            <ui:LogMessage DisplayName="Log Message InitAllApplication 09" sap:VirtualizedContainerService.HintSize="368,96" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Guardando cambios realizados&quot;]" />
+            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" sap2010:Annotation.AnnotationText="Presiona el boton de guardar cambios para que los cambios sean almacenados en la busqueda" ClickType="CLICK_SINGLE" DisplayName="Cerrar ventana Spam" sap:VirtualizedContainerService.HintSize="368,152.666666666667" sap2010:WorkflowViewState.IdRef="Click_3" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
+              <ui:Click.CursorPosition>
+                <ui:CursorPosition Position="Center">
+                  <ui:CursorPosition.OffsetX>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetX>
+                  <ui:CursorPosition.OffsetY>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetY>
+                </ui:CursorPosition>
+              </ui:Click.CursorPosition>
+              <ui:Click.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="44216e41-6045-417a-9d8c-8f0aca9fac25" InformativeScreenshot="3337a63d933a9f159a37e5d6fdeee5c4" Selector="&lt;webctrl aria-labelledby='icp-save-button-announce' tag='INPUT' type='submit' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:Click.Target>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:Click>
+          </Sequence>
+        </ActivityAction>
+      </ui:BrowserScope.Body>
+    </ui:BrowserScope>
+  </Sequence>
+</Activity>

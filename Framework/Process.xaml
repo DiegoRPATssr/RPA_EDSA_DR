@@ -1,17 +1,12 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Process" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Process" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property sap2010:Annotation.AnnotationText="Transaction item to be processed." Name="in_TransactionItem" Type="InArgument(sd:DataRow)" />
     <x:Property sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
-    <x:Property Name="in_StrPathTempFolder" Type="InArgument(x:String)" />
-    <x:Property Name="in_TimeProcessStartDate" Type="InArgument(s:DateTime)" />
   </x:Members>
-  <this:Process.in_TimeProcessStartDate>
-    <InArgument x:TypeArguments="s:DateTime" />
-  </this:Process.in_TimeProcessStartDate>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1410.4,708</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1495.33333333333,7124</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="50">
@@ -42,72 +37,577 @@
       <x:String>System.Runtime.InteropServices</x:String>
       <x:String>System.Windows.Forms</x:String>
       <x:String>System.Reflection</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>UiPath.DataTableUtilities</x:String>
+      <x:String>UiPath.Platform.SyncObjects</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>System.Text.RegularExpressions</x:String>
+      <x:String>System.Globalization</x:String>
+      <x:String>UiPath.UIAutomationNext.Models</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.ExtractData</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Services.RuntimeAnalyze</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>UiPath.Excel.Activities.Business</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
     <sco:Collection x:TypeArguments="AssemblyReference">
-      <AssemblyReference>System.Activities</AssemblyReference>
-      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
-      <AssemblyReference>mscorlib</AssemblyReference>
-      <AssemblyReference>System.Data</AssemblyReference>
-      <AssemblyReference>System</AssemblyReference>
-      <AssemblyReference>System.Drawing</AssemblyReference>
-      <AssemblyReference>System.Core</AssemblyReference>
-      <AssemblyReference>System.Xml</AssemblyReference>
-      <AssemblyReference>System.Xml.Linq</AssemblyReference>
-      <AssemblyReference>PresentationFramework</AssemblyReference>
-      <AssemblyReference>WindowsBase</AssemblyReference>
-      <AssemblyReference>PresentationCore</AssemblyReference>
-      <AssemblyReference>System.Xaml</AssemblyReference>
-      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
-      <AssemblyReference>System.ServiceModel</AssemblyReference>
-      <AssemblyReference>Microsoft.VisualStudio.Services.Common</AssemblyReference>
-      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
-      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
-      <AssemblyReference>System.Memory</AssemblyReference>
-      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
-      <AssemblyReference>System.Windows.Forms</AssemblyReference>
       <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
-      <AssemblyReference>System.ValueTuple</AssemblyReference>
-      <AssemblyReference>UiPath.Excel</AssemblyReference>
-      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
-      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualStudio.Services.Common</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
       <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
       <AssemblyReference>System.Data.Entity</AssemblyReference>
-      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
       <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
-      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.Windows.Forms</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
       <AssemblyReference>UiPath.Python</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>UiPath.GoogleCloud</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Linq.Async.Queryable</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="400,643.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="1216.66666666667,7059.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="sd:DataTable" Name="dt_AmazonProducts" />
+      <Variable x:TypeArguments="x:Int32" Name="RowToWork" />
+    </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message Process Start" sap:VirtualizedContainerService.HintSize="337.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Started Process&quot;]" />
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="This is the general container process in charge of processing and downloading the samp file" DisplayName="Process\SAMP_Workflow.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="337.6,157.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Process\SAMP_Workflow.xaml">
-      <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="x:String" x:Key="in_StrPathTempFolder">
-          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_StrPathTempFolder" />
-        </InArgument>
-        <InArgument x:TypeArguments="s:DateTime" x:Key="in_TimeProcessStartDate">
-          <mva:VisualBasicValue x:TypeArguments="s:DateTime" ExpressionText="in_TimeProcessStartDate" />
-        </InArgument>
-        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
-          <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Config" />
-        </InArgument>
-      </ui:InvokeWorkflowFile.Arguments>
+    <ui:LogMessage DisplayName="Log Message Process Start" sap:VirtualizedContainerService.HintSize="1168.66666666667,96" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Started Process&quot;]" />
+    <ui:LogMessage DisplayName="Log Message Process 01" sap:VirtualizedContainerService.HintSize="1168.66666666667,96" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Enlazando ventana de Edge con amazon cargado&quot;]" />
+    <ui:ReadRange Range="{x:Null}" WorkbookPathResource="{x:Null}" AddHeaders="True" sap2010:Annotation.AnnotationText="Lee la lista de productos de Amazon a buscar" DataTable="[dt_AmazonProducts]" DisplayName="Leer libro de productos a comprar" sap:VirtualizedContainerService.HintSize="1168.66666666667,118.666666666667" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="[in_Config(&quot;SheetName&quot;).ToString]" WorkbookPath="[in_Config(&quot;AmazonProductos&quot;).ToString]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-    </ui:InvokeWorkflowFile>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="337.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Finished Process...&quot;]" />
+    </ui:ReadRange>
+    <ui:LogMessage DisplayName="Log Message Process 02" sap:VirtualizedContainerService.HintSize="1168.66666666667,96" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;Empezando Iteracion de busqueda de productos&quot;]" />
+    <ui:RetryScope DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="1168.66666666667,6221.33333333333" sap2010:WorkflowViewState.IdRef="RetryScope_1" NumberOfRetries="[Cint(in_Config(&quot;MaxRetryNumber&quot;).ToString)]" RetryInterval="[TimeSpan.FromSeconds(Cint(in_Config(&quot;SpamTimeOut&quot;).ToString))]">
+      <ui:RetryScope.ActivityBody>
+        <ActivityAction>
+          <ui:ForEachRow ColumnNames="{x:Null}" sap2010:Annotation.AnnotationText="Itera por cada fila que tenga la tabla de datos" CurrentIndex="[RowToWork]" DataTable="[dt_AmazonProducts]" DisplayName="Cada fila de productos a buscar" sap:VirtualizedContainerService.HintSize="1126.66666666667,5962.66666666667" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+            <ui:ForEachRow.Body>
+              <ActivityAction x:TypeArguments="sd:DataRow">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="sd:DataRow" Name="Row" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1092.66666666667,5815.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" sap2010:Annotation.AnnotationText="Se enlaza ventana de Edge independiente de que titulo o informacion adicional contenga el navegador" BrowserType="Edge" DisplayName="Enlazar Amazon en Edge" sap:VirtualizedContainerService.HintSize="1044.66666666667,5722" sap2010:WorkflowViewState.IdRef="BrowserScope_2" InformativeScreenshot="81f305e6e1d73cdddb7ed84049dee4e8" Selector="&lt;html app='msedge.exe' omit:title='Amazon.com. Spend less. Smile more.' /&gt;">
+                    <ui:BrowserScope.Body>
+                      <ActivityAction x:TypeArguments="x:Object">
+                        <ActivityAction.Argument>
+                          <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+                        </ActivityAction.Argument>
+                        <Sequence DisplayName="Hacer en navegador de Edge" sap:VirtualizedContainerService.HintSize="1010.66666666667,5544" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                          <Sequence.Variables>
+                            <Variable x:TypeArguments="x:Boolean" Name="bool_ChargeCorrect" />
+                            <Variable x:TypeArguments="x:Boolean" Name="bool_NotExists" />
+                            <Variable x:TypeArguments="x:String" Name="str_Price" />
+                            <Variable x:TypeArguments="x:String" Name="str_TotalData" />
+                            <Variable x:TypeArguments="x:String" Name="str_Delivery" />
+                            <Variable x:TypeArguments="x:String" Name="str_DiaEntrega" />
+                            <Variable x:TypeArguments="x:String" Name="str_Valorations" />
+                          </Sequence.Variables>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <If Condition="[Row.Item(3).ToString IsNot &quot;&quot;]" DisplayName="Ya hay datos en esta fila" sap:VirtualizedContainerService.HintSize="962.666666666667,408.666666666667" sap2010:WorkflowViewState.IdRef="If_2">
+                            <If.Then>
+                              <Sequence sap:VirtualizedContainerService.HintSize="416,246.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ui:LogMessage DisplayName="Log Message Process 03" sap:VirtualizedContainerService.HintSize="368,96" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;Ya existen registros para este producto en la lista.&quot; + vbCrLf + &quot;Nombre Producto: &quot;&quot;&quot; + Row.Item(0).ToString + &quot;&quot;&quot;&quot;]" />
+                                <ui:Continue DisplayName="Continuar siguiente iteracion" sap:VirtualizedContainerService.HintSize="368,25.3333333333333" sap2010:WorkflowViewState.IdRef="Continue_1" />
+                              </Sequence>
+                            </If.Then>
+                            <If.Else>
+                              <Sequence sap:VirtualizedContainerService.HintSize="416,189.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ui:LogMessage DisplayName="Log Message Process 04" sap:VirtualizedContainerService.HintSize="368,96" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info" Message="[&quot;Iniciando busqueda para el producto &quot;&quot;&quot; + Row.Item(0).ToString + &quot;&quot;&quot;&quot;]" />
+                              </Sequence>
+                            </If.Else>
+                          </If>
+                          <ui:LogMessage DisplayName="Log Message Process 05" sap:VirtualizedContainerService.HintSize="962.666666666667,96" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Info" Message="[&quot;Navegando a enlace del producto&quot; + vbCrLf + &quot;Enlace: &quot; + vbCrLf + Row.Item(1).ToString]" />
+                          <ui:NavigateTo Browser="{x:Null}" sap2010:Annotation.AnnotationText="Desde el excel que contiene las url, ingresa y navega a la direccion deseada" DisplayName="Ir a enlace del producto" sap:VirtualizedContainerService.HintSize="962.666666666667,132.666666666667" sap2010:WorkflowViewState.IdRef="NavigateTo_2" Url="[Row.Item(1).ToString]">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:NavigateTo>
+                          <ui:LogMessage DisplayName="Log Message Process 06" sap:VirtualizedContainerService.HintSize="962.666666666667,96" sap2010:WorkflowViewState.IdRef="LogMessage_13" Level="Info" Message="[&quot;Esperando carga de pagina...&quot;]" />
+                          <Delay sap2010:Annotation.AnnotationText="Tiempo de espera de 2 segundos" DisplayName="Tiempo espera Process 01" Duration="00:00:02" sap:VirtualizedContainerService.HintSize="962.666666666667,70.6666666666667" sap2010:WorkflowViewState.IdRef="Delay_1">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </Delay>
+                          <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="962.666666666667,280.666666666667" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+                            <ui:CommentOut.Body>
+                              <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416,200.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ui:UiElementExists DisplayName="Element Exists 'IMG'" Exists="[bool_NotExists]" sap:VirtualizedContainerService.HintSize="368,107.333333333333" sap2010:WorkflowViewState.IdRef="UiElementExists_2">
+                                  <ui:UiElementExists.Target>
+                                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="a99c26ae-d97c-41b5-86ef-4e2d1fd2f519" InformativeScreenshot="e0eb7760304b9baaa759becdbff5a173" Selector="&lt;webctrl parentid='g' tag='IMG' aaname='Sorry! We couldn&amp;apos;t find that page. Try searching or go to Amazon&amp;apos;s home page.' /&gt;" TimeoutMS="[CInt(in_Config(&quot;SpamTimeOut&quot;).ToString)]">
+                                      <ui:Target.WaitForReady>
+                                        <InArgument x:TypeArguments="ui:WaitForReady" />
+                                      </ui:Target.WaitForReady>
+                                    </ui:Target>
+                                  </ui:UiElementExists.Target>
+                                </ui:UiElementExists>
+                              </Sequence>
+                            </ui:CommentOut.Body>
+                          </ui:CommentOut>
+                          <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="962.666666666667,524.666666666667" sap2010:WorkflowViewState.IdRef="CommentOut_2">
+                            <ui:CommentOut.Body>
+                              <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="926,444.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <If Condition="[bool_NotExists]" sap:VirtualizedContainerService.HintSize="878,351.333333333333" sap2010:WorkflowViewState.IdRef="If_3">
+                                  <If.Then>
+                                    <Sequence sap:VirtualizedContainerService.HintSize="416,189.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <ui:LogMessage DisplayName="Log Message Process 07" sap:VirtualizedContainerService.HintSize="368,96" sap2010:WorkflowViewState.IdRef="LogMessage_14" Level="Info" Message="[&quot;Navegando a enlace del producto&quot; + vbCrLf + &quot;Enlace: &quot; + vbCrLf + Row.Item(1).ToString]" />
+                                    </Sequence>
+                                  </If.Then>
+                                  <If.Else>
+                                    <Sequence sap:VirtualizedContainerService.HintSize="416,189.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <ui:LogMessage DisplayName="Log Message Process 08" sap:VirtualizedContainerService.HintSize="368,96" sap2010:WorkflowViewState.IdRef="LogMessage_15" Level="Info" Message="[&quot;Navegando a enlace del producto&quot; + vbCrLf + &quot;Enlace: &quot; + vbCrLf + Row.Item(1).ToString]" />
+                                    </Sequence>
+                                  </If.Else>
+                                </If>
+                              </Sequence>
+                            </ui:CommentOut.Body>
+                          </ui:CommentOut>
+                          <ui:LogMessage DisplayName="Log Message Process 09" sap:VirtualizedContainerService.HintSize="962.666666666667,96" sap2010:WorkflowViewState.IdRef="LogMessage_16" Level="Info" Message="[&quot;Seleccionando ubicacion de envío&quot;]" />
+                          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'DIV  contextualIngressPt'" sap:VirtualizedContainerService.HintSize="962.666666666667,107.333333333333" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
+                            <ui:Click.CursorPosition>
+                              <ui:CursorPosition Position="Center">
+                                <ui:CursorPosition.OffsetX>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:CursorPosition.OffsetX>
+                                <ui:CursorPosition.OffsetY>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:CursorPosition.OffsetY>
+                              </ui:CursorPosition>
+                            </ui:Click.CursorPosition>
+                            <ui:Click.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="2a3b59bd-a22d-4344-bdb9-ba97ebcb0ad9" InformativeScreenshot="000eba79b684758ffdc8ea07b33ec85b" Selector="&lt;webctrl id='contextualIngressPt' tag='DIV' /&gt;">
+                                <ui:Target.TimeoutMS>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:Target.TimeoutMS>
+                                <ui:Target.WaitForReady>
+                                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                                </ui:Target.WaitForReady>
+                              </ui:Target>
+                            </ui:Click.Target>
+                          </ui:Click>
+                          <ui:LogMessage DisplayName="Log Message Process 10" sap:VirtualizedContainerService.HintSize="962.666666666667,96" sap2010:WorkflowViewState.IdRef="LogMessage_17" Level="Info" Message="[&quot;Seleccionando pais de envío&quot;]" />
+                          <ui:SelectItem AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" sap2010:Annotation.AnnotationText="Selecciona desde el combo box pais necesaria por el proceso" DisplayName="Seleccionar pais a enviar producto" sap:VirtualizedContainerService.HintSize="962.666666666667,202.666666666667" sap2010:WorkflowViewState.IdRef="SelectItem_1" Item="[Row.Item(2).ToString]">
+                            <ui:SelectItem.Items>
+                              <scg:List x:TypeArguments="x:String" Capacity="50">
+                                <x:String>Australia</x:String>
+                                <x:String>Canada</x:String>
+                                <x:String>China</x:String>
+                                <x:String>Japan</x:String>
+                                <x:String>Mexico</x:String>
+                                <x:String>Singapore</x:String>
+                                <x:String>United Kingdom</x:String>
+                                <x:String>Afghanistan</x:String>
+                                <x:String>Aland Islands</x:String>
+                                <x:String>Albania</x:String>
+                                <x:String>Algeria</x:String>
+                                <x:String>American Samoa</x:String>
+                                <x:String>Andorra</x:String>
+                                <x:String>Angola</x:String>
+                                <x:String>Anguilla</x:String>
+                                <x:String>Antigua and Barbuda</x:String>
+                                <x:String>Argentina</x:String>
+                                <x:String>Armenia</x:String>
+                                <x:String>Aruba</x:String>
+                                <x:String>Australia</x:String>
+                                <x:String>Austria</x:String>
+                                <x:String>Azerbaijan</x:String>
+                                <x:String>Bahamas, The</x:String>
+                                <x:String>Bahrain</x:String>
+                                <x:String>Bangladesh</x:String>
+                                <x:String>Barbados</x:String>
+                                <x:String>Belarus</x:String>
+                                <x:String>Belgium</x:String>
+                                <x:String>Belize</x:String>
+                                <x:String>Benin</x:String>
+                                <x:String>Bermuda</x:String>
+                                <x:String>Bhutan</x:String>
+                                <x:String>Bolivia</x:String>
+                                <x:String>Bonaire, Saint Eustatius and Saba</x:String>
+                                <x:String>Bosnia and Herzegovina</x:String>
+                                <x:String>Botswana</x:String>
+                                <x:String>Bouvet Island</x:String>
+                                <x:String>Brazil</x:String>
+                                <x:String>British Indian Ocean Territory</x:String>
+                                <x:String>Brunei Darussalam</x:String>
+                                <x:String>Bulgaria</x:String>
+                                <x:String>Burkina Faso</x:String>
+                                <x:String>Burundi</x:String>
+                                <x:String>Cambodia</x:String>
+                                <x:String>Cameroon</x:String>
+                                <x:String>Canada</x:String>
+                                <x:String>Cape Verde</x:String>
+                                <x:String>Cayman Islands</x:String>
+                                <x:String>Central African Republic</x:String>
+                                <x:String>Chad</x:String>
+                              </scg:List>
+                            </ui:SelectItem.Items>
+                            <ui:SelectItem.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="455d022c-1172-42e2-8aa6-6c04724fe3c7" InformativeScreenshot="883527f26d29cb5a98eb5b35c4965613" Selector="&lt;webctrl parentid='GLUXCountryListDropdown' tag='SPAN' /&gt;">
+                                <ui:Target.TimeoutMS>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:Target.TimeoutMS>
+                                <ui:Target.WaitForReady>
+                                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                                </ui:Target.WaitForReady>
+                              </ui:Target>
+                            </ui:SelectItem.Target>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:SelectItem>
+                          <ui:LogMessage DisplayName="Log Message Process 11" sap:VirtualizedContainerService.HintSize="962.666666666667,96" sap2010:WorkflowViewState.IdRef="LogMessage_18" Level="Info" Message="[&quot;Aceptando parametros&quot;]" />
+                          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'DIV  contextualIngressPt'" sap:VirtualizedContainerService.HintSize="962.666666666667,107.333333333333" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
+                            <ui:Click.CursorPosition>
+                              <ui:CursorPosition Position="Center">
+                                <ui:CursorPosition.OffsetX>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:CursorPosition.OffsetX>
+                                <ui:CursorPosition.OffsetY>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:CursorPosition.OffsetY>
+                              </ui:CursorPosition>
+                            </ui:Click.CursorPosition>
+                            <ui:Click.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="2a3b59bd-a22d-4344-bdb9-ba97ebcb0ad9" InformativeScreenshot="1b99398b773a97c9d5b7ddd63c20871e" Selector="&lt;webctrl tag='BUTTON' type='button' aaname='Done' /&gt;">
+                                <ui:Target.TimeoutMS>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:Target.TimeoutMS>
+                                <ui:Target.WaitForReady>
+                                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                                </ui:Target.WaitForReady>
+                              </ui:Target>
+                            </ui:Click.Target>
+                          </ui:Click>
+                          <ui:LogMessage DisplayName="Log Message Process 12" sap:VirtualizedContainerService.HintSize="962.666666666667,96" sap2010:WorkflowViewState.IdRef="LogMessage_19" Level="Info" Message="[&quot;Tiempo de espera de carga&quot;]" />
+                          <Delay sap2010:Annotation.AnnotationText="Tiempo de espera de 2 segundos" DisplayName="Tiempo espera Process 02" Duration="00:00:02" sap:VirtualizedContainerService.HintSize="962.666666666667,70.6666666666667" sap2010:WorkflowViewState.IdRef="Delay_3">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </Delay>
+                          <ui:LogMessage DisplayName="Log Message Process 13" sap:VirtualizedContainerService.HintSize="962.666666666667,96" sap2010:WorkflowViewState.IdRef="LogMessage_20" Level="Info" Message="[&quot;Obteniendo fecha de llegada del producto&quot;]" />
+                          <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="962.666666666667,335.333333333333" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+                            <TryCatch.Try>
+                              <Sequence sap:VirtualizedContainerService.HintSize="482,318" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'SPAN'" sap:VirtualizedContainerService.HintSize="434,107.333333333333" sap2010:WorkflowViewState.IdRef="GetValue_4">
+                                  <ui:GetValue.Target>
+                                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ba8abf27-d176-40a6-8d06-a56cd4cffee3" InformativeScreenshot="1ceec816b89f0c7be22e5abf2d53c646" Selector="&lt;webctrl class='a-text-bold' parentid='mir-layout-DELIVERY_BLOCK-slot-PRIMARY_DELIVERY_MESSAGE_LARGE' tag='SPAN' /&gt;">
+                                      <ui:Target.TimeoutMS>
+                                        <InArgument x:TypeArguments="x:Int32" />
+                                      </ui:Target.TimeoutMS>
+                                      <ui:Target.WaitForReady>
+                                        <InArgument x:TypeArguments="ui:WaitForReady" />
+                                      </ui:Target.WaitForReady>
+                                    </ui:Target>
+                                  </ui:GetValue.Target>
+                                  <ui:GetValue.Value>
+                                    <OutArgument x:TypeArguments="x:String">[str_DiaEntrega]</OutArgument>
+                                  </ui:GetValue.Value>
+                                </ui:GetValue>
+                                <Assign sap:VirtualizedContainerService.HintSize="434,85.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_3">
+                                  <Assign.To>
+                                    <OutArgument x:TypeArguments="x:String">[str_DiaEntrega]</OutArgument>
+                                  </Assign.To>
+                                  <Assign.Value>
+                                    <InArgument x:TypeArguments="x:String">[DateTime.ParseExact(str_DiaEntrega, "dddd, MMMM dd", System.Globalization.CultureInfo.InvariantCulture).ToString("dd/MM/yyyy")]</InArgument>
+                                  </Assign.Value>
+                                </Assign>
+                              </Sequence>
+                            </TryCatch.Try>
+                            <TryCatch.Catches>
+                              <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404.666666666667,22" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ActivityAction x:TypeArguments="s:Exception">
+                                  <ActivityAction.Argument>
+                                    <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                                  </ActivityAction.Argument>
+                                  <Sequence sap:VirtualizedContainerService.HintSize="482,465.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Contiene un workflow que cambia la divisa y el idioma de busqueda de los productos&#xA;&#xA;Argumentos de entrada:&#xA;&#xA;1.1 - Nombre argumento: in_Config&#xA;1.2 - Valor que recibe: in_Config&#xA;1.3 - Tipo de Argumento: Diccionario de datos (String y Object)&#xA;1.4 - Descripcion: Diccionario de datos con los valores de Configuracion" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="434,310.666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Process\CambioIdiomaDivisa.xaml">
+                                      <ui:InvokeWorkflowFile.Arguments>
+                                        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+                                      </ui:InvokeWorkflowFile.Arguments>
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                    </ui:InvokeWorkflowFile>
+                                    <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'SPAN'" sap:VirtualizedContainerService.HintSize="434,107.333333333333" sap2010:WorkflowViewState.IdRef="GetValue_5">
+                                      <ui:GetValue.Target>
+                                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ba8abf27-d176-40a6-8d06-a56cd4cffee3" InformativeScreenshot="1ceec816b89f0c7be22e5abf2d53c646" Selector="&lt;webctrl class='a-text-bold' parentid='mir-layout-DELIVERY_BLOCK-slot-PRIMARY_DELIVERY_MESSAGE_LARGE' tag='SPAN' /&gt;">
+                                          <ui:Target.TimeoutMS>
+                                            <InArgument x:TypeArguments="x:Int32" />
+                                          </ui:Target.TimeoutMS>
+                                          <ui:Target.WaitForReady>
+                                            <InArgument x:TypeArguments="ui:WaitForReady" />
+                                          </ui:Target.WaitForReady>
+                                        </ui:Target>
+                                      </ui:GetValue.Target>
+                                      <ui:GetValue.Value>
+                                        <OutArgument x:TypeArguments="x:String">[str_DiaEntrega]</OutArgument>
+                                      </ui:GetValue.Value>
+                                    </ui:GetValue>
+                                    <Assign sap:VirtualizedContainerService.HintSize="434,85.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_8">
+                                      <Assign.To>
+                                        <OutArgument x:TypeArguments="x:String">[str_DiaEntrega]</OutArgument>
+                                      </Assign.To>
+                                      <Assign.Value>
+                                        <InArgument x:TypeArguments="x:String">[DateTime.ParseExact(str_DiaEntrega, "dddd, MMMM dd", System.Globalization.CultureInfo.InvariantCulture).ToString("dd/MM/yyyy")]</InArgument>
+                                      </Assign.Value>
+                                    </Assign>
+                                  </Sequence>
+                                </ActivityAction>
+                              </Catch>
+                            </TryCatch.Catches>
+                            <TryCatch.Finally>
+                              <ui:LogMessage DisplayName="Log Message Process 14" sap:VirtualizedContainerService.HintSize="334,96" sap2010:WorkflowViewState.IdRef="LogMessage_21" Level="Info" Message="[&quot;Fecha de recepcion del producto es &quot;&quot;&quot; + str_DiaEntrega + &quot;&quot;&quot;&quot;]" />
+                            </TryCatch.Finally>
+                          </TryCatch>
+                          <ui:LogMessage DisplayName="Log Message Process 15" sap:VirtualizedContainerService.HintSize="962.666666666667,96" sap2010:WorkflowViewState.IdRef="LogMessage_22" Level="Info" Message="[&quot;Presionando detalles para obtener valores&quot;]" />
+                          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'DIV  contextualIngressPt'" sap:VirtualizedContainerService.HintSize="962.666666666667,107.333333333333" sap2010:WorkflowViewState.IdRef="Click_3" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
+                            <ui:Click.CursorPosition>
+                              <ui:CursorPosition Position="Center">
+                                <ui:CursorPosition.OffsetX>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:CursorPosition.OffsetX>
+                                <ui:CursorPosition.OffsetY>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:CursorPosition.OffsetY>
+                              </ui:CursorPosition>
+                            </ui:Click.CursorPosition>
+                            <ui:Click.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="2a3b59bd-a22d-4344-bdb9-ba97ebcb0ad9" InformativeScreenshot="1b20920e0634acb5e7bbf8de4b1385ff" Selector="&lt;webctrl class='a-size-base' parentid='amazonGlobal_feature_div' tag='SPAN' /&gt;">
+                                <ui:Target.TimeoutMS>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:Target.TimeoutMS>
+                                <ui:Target.WaitForReady>
+                                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                                </ui:Target.WaitForReady>
+                              </ui:Target>
+                            </ui:Click.Target>
+                          </ui:Click>
+                          <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'SPAN'" sap:VirtualizedContainerService.HintSize="962.666666666667,107.333333333333" sap2010:WorkflowViewState.IdRef="GetValue_1">
+                            <ui:GetValue.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ba8abf27-d176-40a6-8d06-a56cd4cffee3" InformativeScreenshot="6b027a66b8f8adb3475843b29423760c" Selector="&lt;webctrl tag='DIV' class='a-popover-content' isleaf='0' idx='2' /&gt;">
+                                <ui:Target.TimeoutMS>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:Target.TimeoutMS>
+                                <ui:Target.WaitForReady>
+                                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                                </ui:Target.WaitForReady>
+                              </ui:Target>
+                            </ui:GetValue.Target>
+                            <ui:GetValue.Value>
+                              <OutArgument x:TypeArguments="x:String">[str_TotalData]</OutArgument>
+                            </ui:GetValue.Value>
+                          </ui:GetValue>
+                          <Assign sap:VirtualizedContainerService.HintSize="962.666666666667,85.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_1">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[str_Price]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String">[System.Text.RegularExpressions.Regex.Match(str_TotalData, "(?&lt;=Price\s+CLP\s*)(\d{1,3}(?:,\d{3})*)").Value]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                          <ui:LogMessage DisplayName="Log Message Process 16" sap:VirtualizedContainerService.HintSize="962.666666666667,96" sap2010:WorkflowViewState.IdRef="LogMessage_23" Level="Info" Message="[&quot;El precio del producto es de &quot;&quot;&quot; + str_Price + &quot;&quot;&quot;&quot;]" />
+                          <Assign sap:VirtualizedContainerService.HintSize="962.666666666667,85.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_2">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[str_Delivery]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String">[System.Text.RegularExpressions.Regex.Match(str_TotalData, "(?&lt;=AmazonGlobal Shipping\s+CLP\s*)(\d{1,3}(?:,\d{3})*)").Value]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                          <ui:LogMessage DisplayName="Log Message Process 17" sap:VirtualizedContainerService.HintSize="962.666666666667,96" sap2010:WorkflowViewState.IdRef="LogMessage_24" Level="Info" Message="[&quot;El precio de envio es de &quot;&quot;&quot; + str_Delivery + &quot;&quot;&quot;&quot;]" />
+                          <ui:LogMessage DisplayName="Log Message Process 18" sap:VirtualizedContainerService.HintSize="962.666666666667,96" sap2010:WorkflowViewState.IdRef="LogMessage_25" Level="Info" Message="[&quot;Obteniendo valoraciones de usuario...&quot;]" />
+                          <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Edge: Amazon.com: Unidapt US Travel Plug Adapter, EU,AU,UK,NZ,CN,in to USA (Type B), Gro" sap:VirtualizedContainerService.HintSize="962.666666666667,595.333333333333" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="b1dad46f-2322-4bca-80c7-5ed63ac7cc4f" Version="V2">
+                            <uix:NApplicationCard.Body>
+                              <ActivityAction x:TypeArguments="x:Object">
+                                <ActivityAction.Argument>
+                                  <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                                </ActivityAction.Argument>
+                                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="482,376" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                                  <Sequence.Variables>
+                                    <Variable x:TypeArguments="sd:DataTable" Name="dt_Valorations" />
+                                  </Sequence.Variables>
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <uix:NExtractData AppendResults="False" ContinueOnError="True" DataTable="[dt_Valorations]" DisplayName="Extract Table Data" ExtractDataSettings="&lt;Table xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' Type='Structured' AddCvHeader='true' IsScrollEnabled='false'&gt;&#xD;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column0' Name='New column 0'&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xD;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xD;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xD;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xD;&#xA;&#x9;&lt;/Column&gt;&#xD;&#xA;&lt;/Table&gt;" ExtractMetadata="&lt;extract&gt;&lt;column exact='1' name='Column0' attr='fulltext'&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;/column&gt;&lt;/extract&gt;" sap:VirtualizedContainerService.HintSize="434,160" sap2010:WorkflowViewState.IdRef="NExtractData_1" LimitExtractionTo="None" MaximumResults="0" ScopeIdentifier="b1dad46f-2322-4bca-80c7-5ed63ac7cc4f" Version="V4">
+                                    <uix:NExtractData.Target>
+                                      <uix:TargetAnchorable BrowserURL="https://www.amazon.com/Unidapt-Adapter-Grounded-Adaptor-Converter/dp/B08D741PV6/?_encoding=UTF8&amp;pd_rd_w=jijKL&amp;content-id=amzn1.sym.59e06f17-139e-49a4-ada7-b8439f50bb02&amp;pf_rd_p=59e06f17-139e-49a4-ada7-b8439f50bb02&amp;pf_rd_r=2C0A240NGGT8EAAY6T8W&amp;pd_rd_wg=9bQhE&amp;pd_rd_r=2c145a53-a3ce-40e4-9153-dd68bc9aa91d&amp;ref_=pd_gw_exports_top_sellers_unrec&amp;language=es_US&amp;currency=CLP&amp;th=1" DesignTimeRectangle="44, 224, 450, 444" DesignTimeScaleFactor="1.5" FullSelectorArgument="&lt;webctrl class='_cr-ratings-histogram_style_ratings-histogram-card-data__dudeB' tag='DIV' /&gt;" Guid="6bee749d-561b-4e89-91a3-e196970840ba" InformativeScreenshot="e38456bcf84baa7503f2b362134c8f0e.png" ScopeSelectorArgument="&lt;html app='msedge.exe' htmlwindowname='https://m.media-amazon.com/images/I/11EIQ5IGqaL._RC%7C01e5ncglxyL.css,01lF2n-pPaL.css,519YvOBDG8L.css,31uBZQYbDJL.css,11hEAfyy4tL.css,01qPl4hxayL.css,01pOTCa2wPL.css,413Vvv3GONL.css,11TIuySqr6L.css,01Rw4F+QU6L.css,11vYg+mVuGL.css,01J3raiFJrL.css,01IdKcBuAd*' title='Amazon.com: Unidapt US Travel Plug Adapter, EU,AU,UK,NZ,CN,in to USA (Type B), Grounded 3 Prong USA Wall Plug, EU to US Travel Adaptor and Converter, Power Outlet Charger (1-Pack) : Tools &amp;amp; Home Improvement' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
+                                    </uix:NExtractData.Target>
+                                  </uix:NExtractData>
+                                  <Assign sap:VirtualizedContainerService.HintSize="434,85.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_4">
+                                    <Assign.To>
+                                      <OutArgument x:TypeArguments="x:String">[str_Valorations]</OutArgument>
+                                    </Assign.To>
+                                    <Assign.Value>
+                                      <InArgument x:TypeArguments="x:String">[String.Join(", ", dt_Valorations.Rows(0).ItemArray)]</InArgument>
+                                    </Assign.Value>
+                                  </Assign>
+                                </Sequence>
+                              </ActivityAction>
+                            </uix:NApplicationCard.Body>
+                            <uix:NApplicationCard.TargetApp>
+                              <uix:TargetApp Area="-11, -11, 1942, 1030" BrowserType="Edge" IconBase64="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAF5SURBVDhPlVM9S8NQFBW0+QOO2h+gU9vdSbuLNP0HprtDfoBIhYKgWFyFLLpUC10EjbvawcFC4qJDm4CDllQdHHq9JzdfbYLUA4e8d98959738t4cESnMA2afOSuQC40Cg31EkrBtm3Rdp4qqklqtkmEYwUoKDRi4MhZ0u12az+VoYYowzIALg6GMBVqt5gs2ymWyLCuaL+fzQcYEhikDx3H8LkzTpMt2299C2EUG0gbYf6FUikRJZiBtEFaECbo5bjb/ZxAm79Xr/nxb06KY53l+LIG0QaFYjAQ4yOQfQTdTCAy+HJkycIBLfOIQ4AtRhbe1zmajd5fGFt+J+x1hZNBZJfqwEPgbt1sifNwlOoM0NBjcEJ3z8I4XR3E3KXwOiF5aUqy1iEjiDF4vxAS8WpMqvUOiJ2bviKtvSlXkoSDWA4P4Kr89SCJMkMwcB1/qrPATupa8H/4bYHCVGxhNAC0+n8Yd9LliNvzHhOd8wvxGZEYglzWk/AJk0E1AkKBI3AAAAABJRU5ErkJggg==" InformativeScreenshot="9d284cf10c8e3f8d1a297e4fb2847f9e.jpg" Selector="&lt;html app='msedge.exe' htmlwindowname='https://m.media-amazon.com/images/I/11EIQ5IGqaL._RC%7C01e5ncglxyL.css,01lF2n-pPaL.css,519YvOBDG8L.css,31uBZQYbDJL.css,11hEAfyy4tL.css,01qPl4hxayL.css,01pOTCa2wPL.css,413Vvv3GONL.css,11TIuySqr6L.css,01Rw4F+QU6L.css,11vYg+mVuGL.css,01J3raiFJrL.css,01IdKcBuAd*' url='https://www.amazon.com/Unidapt-Adapter-Grounded-Adaptor-Converter/dp/B08D741PV6/?_encoding=UTF8&amp;amp;pd_rd_w=jijKL&amp;amp;content-id=amzn1.sym.59e06f17-139e-49a4-ada7-b8439f50bb02&amp;amp;pf_rd_p=59e06f17-139e-49a4-ada7-b8439f50bb02&amp;amp;pf_rd_r=2C0A240NGGT8EAAY6T8W&amp;amp;pd_rd_wg=9bQhE&amp;amp;pd_rd_r=2c145a53-a3ce-40e4-9153-dd68bc9aa91d&amp;amp;ref_=pd_gw_exports_top_sellers_unrec&amp;amp;language=es_US&amp;amp;currency=CLP&amp;amp;th=1' /&gt;" Title="Amazon.com: Unidapt US Travel Plug Adapter, EU,AU,UK,NZ,CN,in to USA (Type B), Grounded 3 Prong USA Wall Plug, EU to US Travel Adaptor and Converter, Power Outlet Charger (1-Pack) : Tools &amp; Home Improvement" Url="[Row.Item(1).ToString]" Version="V1" />
+                            </uix:NApplicationCard.TargetApp>
+                          </uix:NApplicationCard>
+                          <ui:LogMessage DisplayName="Log Message Process 19" sap:VirtualizedContainerService.HintSize="962.666666666667,96" sap2010:WorkflowViewState.IdRef="LogMessage_26" Level="Info" Message="[&quot;Las valoraciones de usuario son:&quot; + vbCrLf +String.Join(Environment.NewLine, System.Text.RegularExpressions.Regex.Matches(str_Valorations, &quot;(\d)\s+star\s+(\d{1,3})%&quot;).Cast(Of System.Text.RegularExpressions.Match).Select(Function(m) m.Groups(1).Value &amp; &quot; - &quot; &amp; m.Groups(2).Value &amp; &quot;%&quot;))]" />
+                          <Assign sap:VirtualizedContainerService.HintSize="962.666666666667,85.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_5">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[str_Valorations]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String">[String.Join(",", System.Text.RegularExpressions.Regex.Matches(str_Valorations, "(\d)\s+star\s+(\d{1,3})%").Cast(Of System.Text.RegularExpressions.Match).Select(Function(m) m.Groups(1).Value &amp; " - " &amp; m.Groups(2).Value &amp; "%"))]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                          <ui:LogMessage DisplayName="Log Message wait" sap:VirtualizedContainerService.HintSize="962.666666666667,96" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Info" Message="[&quot;Log Wait&quot;]" />
+                        </Sequence>
+                      </ActivityAction>
+                    </ui:BrowserScope.Body>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:BrowserScope>
+                </Sequence>
+              </ActivityAction>
+            </ui:ForEachRow.Body>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:ForEachRow>
+        </ActivityAction>
+      </ui:RetryScope.ActivityBody>
+      <ui:RetryScope.Condition>
+        <ActivityFunc x:TypeArguments="x:Boolean" />
+      </ui:RetryScope.Condition>
+    </ui:RetryScope>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1168.66666666667,96" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Finished Process...&quot;]" />
   </Sequence>
 </Activity>
