@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1491.33333333333,4347.33333333333</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1491.33333333333,4056.66666666667</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Notification_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="64">
@@ -100,7 +100,7 @@
       <x:Boolean x:Key="ShouldExpandAll">True</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence sap2010:Annotation.AnnotationText="Notifications according to execution term." DisplayName="Notification" sap:VirtualizedContainerService.HintSize="1058,4282.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Notifications according to execution term." DisplayName="Notification" sap:VirtualizedContainerService.HintSize="1058,3992" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="str_Notification" />
       <Variable x:TypeArguments="x:Int32" Name="int_AmountAttached" />
@@ -239,43 +239,24 @@
         </Sequence>
       </If.Else>
     </If>
-    <Sequence DisplayName="Do Users - Maintainers" sap:VirtualizedContainerService.HintSize="1010,1091.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_13">
+    <Sequence DisplayName="Do Users - Maintainers" sap:VirtualizedContainerService.HintSize="1010,800.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_13">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:LogMessage DisplayName="Log Message notificacion 13" sap:VirtualizedContainerService.HintSize="518.666666666667,96" sap2010:WorkflowViewState.IdRef="LogMessage_20" Level="Info" Message="[&quot;Obteniendo destinatarios&quot;]" />
-      <Assign DisplayName="Assign From" sap:VirtualizedContainerService.HintSize="518.666666666667,85.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_43">
+      <ui:LogMessage DisplayName="Log Message notificacion 13" sap:VirtualizedContainerService.HintSize="434,96" sap2010:WorkflowViewState.IdRef="LogMessage_20" Level="Info" Message="[&quot;Obteniendo destinatarios&quot;]" />
+      <Assign DisplayName="Assign From" sap:VirtualizedContainerService.HintSize="434,85.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_48">
         <Assign.To>
           <OutArgument x:TypeArguments="x:String">[str_From]</OutArgument>
         </Assign.To>
         <Assign.Value>
-          <InArgument x:TypeArguments="x:String">d.a.ramirezr@outlook.com</InArgument>
+          <InArgument x:TypeArguments="x:String">[in_Config("Notifi_From").ToString]</InArgument>
         </Assign.Value>
       </Assign>
-      <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="518.666666666667,258.666666666667" sap2010:WorkflowViewState.IdRef="CommentOut_3">
-        <ui:CommentOut.Body>
-          <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="482,178.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_16">
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-            <Assign DisplayName="Assign From" sap:VirtualizedContainerService.HintSize="434,85.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_38">
-              <Assign.To>
-                <OutArgument x:TypeArguments="x:String">[str_From]</OutArgument>
-              </Assign.To>
-              <Assign.Value>
-                <InArgument x:TypeArguments="x:String">[in_Config("Notifi_From").ToString]</InArgument>
-              </Assign.Value>
-            </Assign>
-          </Sequence>
-        </ui:CommentOut.Body>
-      </ui:CommentOut>
-      <ui:LogMessage DisplayName="Log Message notificacion 14" sap:VirtualizedContainerService.HintSize="518.666666666667,96" sap2010:WorkflowViewState.IdRef="LogMessage_21" Level="Info" Message="[&quot;Obteniendo destinatarios con Copia&quot;]" />
-      <Assign DisplayName="Assign CC" sap:VirtualizedContainerService.HintSize="518.666666666667,85.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_39">
+      <ui:LogMessage DisplayName="Log Message notificacion 14" sap:VirtualizedContainerService.HintSize="434,96" sap2010:WorkflowViewState.IdRef="LogMessage_21" Level="Info" Message="[&quot;Obteniendo destinatarios con Copia&quot;]" />
+      <Assign DisplayName="Assign CC" sap:VirtualizedContainerService.HintSize="434,85.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_39">
         <Assign.To>
           <OutArgument x:TypeArguments="x:String">[str_CC]</OutArgument>
         </Assign.To>
@@ -283,8 +264,8 @@
           <InArgument x:TypeArguments="x:String">[in_Config("CC_From").ToString]</InArgument>
         </Assign.Value>
       </Assign>
-      <ui:LogMessage DisplayName="Log Message notificacion 15" sap:VirtualizedContainerService.HintSize="518.666666666667,96" sap2010:WorkflowViewState.IdRef="LogMessage_22" Level="Info" Message="[&quot;Obteniendo lista de archivos a enviar&quot;]" />
-      <Assign DisplayName="Obtener lista de archivos a enviar" sap:VirtualizedContainerService.HintSize="518.666666666667,85.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_47">
+      <ui:LogMessage DisplayName="Log Message notificacion 15" sap:VirtualizedContainerService.HintSize="434,96" sap2010:WorkflowViewState.IdRef="LogMessage_22" Level="Info" Message="[&quot;Obteniendo lista de archivos a enviar&quot;]" />
+      <Assign DisplayName="Obtener lista de archivos a enviar" sap:VirtualizedContainerService.HintSize="434,85.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_47">
         <Assign.To>
           <OutArgument x:TypeArguments="scg:IEnumerable(x:String)">[AttachmentsCollection]</OutArgument>
         </Assign.To>
